@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #0A1621; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: var(--accent, #6FA0C4); text-decoration: none; }
+  a:hover { color: var(--accent, #6FA0C4); }
+</style>
+</helmet>
+<div style="--accent: {{ accent }}; font-family: 'Archivo', sans-serif; color: #C6CED6; background: #0A1621; position: relative; overflow-x: hidden;">
+
+  <!-- ============ FIXED VIDEO BACKGROUND ============ -->
+  <video ref="{{ videoRef }}" autoPlay loop muted playsInline preload="auto" style="position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+    <source src="assets/home-bg.mp4" type="video/mp4">
+  </video>
+  <!-- global scrim over the video (keeps text legible everywhere, subdues the footage) -->
+  <div style="position: fixed; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(180deg, rgba(8,15,24,0.72) 0%, rgba(8,15,24,0.52) 34%, rgba(8,15,24,0.5) 66%, rgba(8,15,24,0.66) 100%);"></div>
+
+  <div style="position: relative; z-index: 2;">
+
+  <!-- ============ HERO ============ -->
+  <header data-screen-label="Home / Hero" style="position: relative; padding: 0 clamp(20px, 5vw, 64px); overflow: hidden;">
+    <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(101deg, rgba(6,12,20,0.86) 0%, rgba(6,12,20,0.6) 40%, rgba(6,12,20,0.22) 76%, rgba(6,12,20,0.04) 100%);"></div>
+    <div style="position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(6,12,20,0.5) 0%, transparent 26%, transparent 72%, rgba(6,12,20,0.42) 100%);"></div>
+
+    <!-- nav -->
+    <nav style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 24px 0;">
+      <a href="#top" style="display: flex; align-items: center; gap: 13px; color: #F2F4F6;">
+        <img src="assets/logo-mark-light.png" alt="Thulio Peixoto Advogados" style="height: 50px; width: auto; display: block;">
+        <span style="display: flex; flex-direction: column; line-height: 1.08;">
+          <span style="font-family: 'Spectral', serif; font-size: 20px; letter-spacing: 0.01em; font-weight: 500;">Thulio Peixoto</span>
+          <span style="font-family: 'Archivo', sans-serif; font-size: 11px; letter-spacing: 0.46em; text-transform: uppercase; color: #9AA7B2; font-weight: 500; padding-left: 2px;">Advogados</span>
+        </span>
+      </a>
+      <div style="display: flex; align-items: center; gap: clamp(18px, 3vw, 36px); flex-wrap: wrap;">
+        <a href="#areas" style="color: #C4CDD5; font-size: 14.5px; letter-spacing: 0.01em; transition: color .2s;" style-hover="color: #FFFFFF;">Áreas de Atuação</a>
+        <a href="#sobre" style="color: #C4CDD5; font-size: 14.5px; letter-spacing: 0.01em; transition: color .2s;" style-hover="color: #FFFFFF;">Sobre</a>
+        <a href="#contato" style="color: #C4CDD5; font-size: 14.5px; letter-spacing: 0.01em; transition: color .2s;" style-hover="color: #FFFFFF;">Contato</a>
+        <a href="#contato" style="display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.30); color: #F2F4F6; padding: 9px 18px; font-size: 14px; letter-spacing: 0.01em; white-space: nowrap; transition: border-color .2s, background .2s;" style-hover="border-color: var(--accent, #6FA0C4); background: rgba(255,255,255,0.06);">Agendar diagnóstico</a>
+      </div>
+    </nav>
+
+    <!-- hero content -->
+    <div id="top" style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: clamp(72px, 12vw, 168px) 0 clamp(84px, 13vw, 188px);">
+      <div style="max-width: 760px;">
+        <p style="font-family: 'Archivo', sans-serif; font-size: 12.5px; letter-spacing: 0.24em; text-transform: uppercase; color: #8FB6D2; font-weight: 600; margin-bottom: 24px;">Direito do Trabalho Empresarial</p>
+        <h1 style="font-family: 'Spectral', serif; font-weight: 400; font-size: clamp(31px, 4.6vw, 52px); line-height: 1.11; letter-spacing: -0.015em; color: #FBFCFD; text-wrap: balance; max-width: 15ch; text-shadow: 0 2px 30px rgba(0,0,0,0.45);">Defesa e prevenção trabalhista empresarial</h1>
+        <p style="margin-top: 24px; font-size: clamp(15.5px, 1.7vw, 18px); line-height: 1.62; color: #D4DBE2; max-width: 46ch; text-shadow: 0 1px 18px rgba(0,0,0,0.4);">Defesa em reclamatórias e prevenção de passivo trabalhista, ao lado do empregador.</p>
+        <div style="margin-top: 36px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
+          <a href="#contato" style="display: inline-flex; align-items: center; gap: 10px; background: #F6F5F3; color: #102131; padding: 16px 28px; font-weight: 600; font-size: 15px; letter-spacing: 0.01em; box-shadow: 0 10px 34px -14px rgba(0,0,0,0.6); transition: transform .2s ease, background .2s ease;" style-hover="transform: translateY(-2px); background: #FFFFFF;">Agendar diagnóstico inicial <span style="font-size: 17px;">→</span></a>
+          <a href="#areas" style="display: inline-flex; align-items: center; gap: 8px; color: #DCE2E8; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.28); padding-bottom: 3px; transition: border-color .2s, color .2s;" style-hover="border-color: var(--accent, #6FA0C4); color: #FFFFFF;">Conhecer as áreas de atuação</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ DORES DO CLIENTE ============ -->
+  <section data-screen-label="Home / Dores" style="position: relative; padding: clamp(60px, 8vw, 108px) clamp(20px, 5vw, 64px); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="max-width: 620px; margin-bottom: clamp(38px, 5vw, 58px);">
+        <p style="font-family: 'Archivo', sans-serif; font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #8FB6D2; font-weight: 600; margin-bottom: 20px;">Exposição trabalhista</p>
+        <h2 style="font-family: 'Spectral', serif; font-weight: 400; font-size: clamp(27px, 4vw, 40px); line-height: 1.18; letter-spacing: -0.01em; color: #F4F6F8; text-wrap: balance; text-shadow: 0 1px 20px rgba(0,0,0,0.35);">As situações que mais expõem a empresa.</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(14px, 1.6vw, 20px);">
+        <sc-for list="{{ dores }}" as="dor" hint-placeholder-count="4">
+          <div style="background: rgba(12,24,36,0.55); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px); padding: clamp(26px, 3vw, 36px); display: flex; flex-direction: column; gap: 12px; transition: background .25s, border-color .25s;" style-hover="background: rgba(17,32,47,0.66); border-color: rgba(255,255,255,0.2);">
+            <span style="width: 26px; height: 2px; background: var(--accent, #6FA0C4); display: block; margin-bottom: 6px;"></span>
+            <h3 style="font-family: 'Spectral', serif; font-weight: 500; font-size: 20px; color: #EEF1F4; line-height: 1.25;">{{ dor.title }}</h3>
+            <p style="font-size: 15px; line-height: 1.6; color: #AEB9C4;">{{ dor.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÁREAS DE ATUAÇÃO ============ -->
+  <section id="areas" data-screen-label="Home / Áreas" style="position: relative; padding: clamp(60px, 8vw, 108px) clamp(20px, 5vw, 64px); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: clamp(38px, 5vw, 56px);">
+        <div style="max-width: 640px;">
+          <p style="font-family: 'Archivo', sans-serif; font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #8FB6D2; font-weight: 600; margin-bottom: 20px;">Áreas de Atuação</p>
+          <h2 style="font-family: 'Spectral', serif; font-weight: 400; font-size: clamp(27px, 4vw, 40px); line-height: 1.18; letter-spacing: -0.01em; color: #F4F6F8; text-wrap: balance; text-shadow: 0 1px 20px rgba(0,0,0,0.35);">Da prevenção do passivo à defesa em juízo.</h2>
+        </div>
+        <a href="#contato" style="display: inline-flex; align-items: center; gap: 8px; color: #DCE2E8; font-size: 14.5px; border-bottom: 1px solid rgba(255,255,255,0.28); padding-bottom: 3px; white-space: nowrap; transition: border-color .2s, color .2s;" style-hover="border-color: var(--accent, #6FA0C4); color: #FFFFFF;">Ver página completa →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(14px, 1.5vw, 20px);">
+        <sc-for list="{{ areas }}" as="area" hint-placeholder-count="5">
+          <div style="background: rgba(12,24,36,0.55); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px); padding: clamp(26px, 2.6vw, 34px); display: flex; flex-direction: column; gap: 14px; transition: transform .25s ease, background .25s ease, border-color .25s ease;" style-hover="transform: translateY(-4px); background: rgba(17,32,47,0.66); border-color: rgba(255,255,255,0.22);">
+            <sc-if value="{{ showNumbers }}" hint-placeholder-val="{{ true }}">
+              <span style="font-family: 'Spectral', serif; font-size: 15px; color: var(--accent, #6FA0C4); letter-spacing: 0.05em; font-weight: 500;">{{ area.num }}</span>
+            </sc-if>
+            <h3 style="font-family: 'Spectral', serif; font-weight: 500; font-size: 21px; line-height: 1.25; color: #EEF1F4;">{{ area.title }}</h3>
+            <p style="font-size: 14.5px; line-height: 1.62; color: #AEB9C4;">{{ area.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA MID ============ -->
+  <section data-screen-label="Home / CTA intermediário" style="position: relative; padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 64px);">
+    <div style="max-width: 1180px; margin: 0 auto; background: rgba(16,40,58,0.5); border: 1px solid rgba(255,255,255,0.09); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: clamp(36px, 5vw, 60px) clamp(28px, 4vw, 56px); display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+      <div style="max-width: 620px;">
+        <h2 style="font-family: 'Spectral', serif; font-weight: 400; font-size: clamp(24px, 3.4vw, 36px); line-height: 1.2; letter-spacing: -0.01em; color: #F6F7F8; text-wrap: balance;">Uma conversa inicial para mapear os riscos trabalhistas da sua empresa.</h2>
+      </div>
+      <a href="#contato" style="display: inline-flex; align-items: center; gap: 10px; background: #F6F5F3; color: #102131; padding: 16px 28px; font-weight: 600; font-size: 15px; letter-spacing: 0.01em; white-space: nowrap; box-shadow: 0 10px 34px -14px rgba(0,0,0,0.55); transition: transform .2s ease, background .2s ease;" style-hover="transform: translateY(-2px); background: #FFFFFF;">Agendar diagnóstico inicial <span style="font-size: 17px;">→</span></a>
+    </div>
+  </section>
+
+  <!-- ============ CREDIBILIDADE (prosa) ============ -->
+  <section id="sobre" data-screen-label="Home / Credibilidade" style="position: relative; padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 64px); border-top: 1px solid rgba(255,255,255,0.06);">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <p style="font-family: 'Archivo', sans-serif; font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #8FB6D2; font-weight: 600; margin-bottom: 28px;">O escritório</p>
+      <p style="font-family: 'Spectral', serif; font-weight: 300; font-size: clamp(19px, 2.4vw, 26px); line-height: 1.55; color: #EFF2F5; letter-spacing: -0.005em; text-shadow: 0 1px 20px rgba(0,0,0,0.35);">Dedicação exclusiva ao Direito do Trabalho empresarial, com atuação preventiva e contenciosa ao lado do empregador.</p>
+      <p style="margin-top: 26px; font-size: clamp(15px, 1.7vw, 17px); line-height: 1.72; color: #AEB9C4;">O escritório conduz um número limitado de casos por vez, o que garante acompanhamento direto e próximo em cada demanda.</p>
+      <a href="#sobre" style="display: inline-flex; align-items: center; gap: 8px; margin-top: 34px; color: #DCE2E8; font-size: 14.5px; border-bottom: 1px solid rgba(255,255,255,0.28); padding-bottom: 3px; white-space: nowrap; transition: border-color .2s;" style-hover="border-color: var(--accent, #6FA0C4);">Conhecer a trajetória →</a>
+    </div>
+  </section>
+
+  <!-- ============ AGENDAR ============ -->
+  <section id="contato" data-screen-label="Home / Agendar" style="position: relative; padding: clamp(40px, 6vw, 76px) clamp(20px, 5vw, 64px) clamp(60px, 8vw, 100px);">
+    <div style="max-width: 1180px; margin: 0 auto; background: rgba(9,20,32,0.52); border: 1px solid rgba(255,255,255,0.09); backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px); padding: clamp(36px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(40px, 6vw, 72px); align-items: start;">
+      <div>
+        <p style="font-family: 'Archivo', sans-serif; font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase; color: #8FB6D2; font-weight: 600; margin-bottom: 22px;">Diagnóstico inicial</p>
+        <h2 style="font-family: 'Spectral', serif; font-weight: 400; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; letter-spacing: -0.015em; color: #F6F7F8; text-wrap: balance; max-width: 14ch;">Vamos entender a situação da sua empresa.</h2>
+        <p style="margin-top: 24px; font-size: 16px; line-height: 1.65; color: #B7C1CB; max-width: 42ch;">Uma primeira conversa para avaliar o cenário trabalhista da sua empresa e definir os próximos passos.</p>
+        <a href="#contato" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; border: 1px solid rgba(255,255,255,0.28); color: #F2F4F6; padding: 13px 22px; font-size: 14.5px; transition: border-color .2s, background .2s;" style-hover="border-color: var(--accent, #6FA0C4); background: rgba(255,255,255,0.06);"><span style="width: 8px; height: 8px; border-radius: 50%; background: #4FB477; display: inline-block;"></span> Falar pelo WhatsApp</a>
+      </div>
+
+      <form onSubmit="{{ onSubmit }}" style="display: flex; flex-direction: column; gap: 18px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px;">
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12.5px; letter-spacing: 0.04em; color: #9AA6B0; text-transform: uppercase;">Nome</span>
+            <input type="text" placeholder="Seu nome" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18); color: #F2F4F6; padding: 13px 15px; font-family: 'Archivo', sans-serif; font-size: 15px; outline: none; transition: border-color .2s;" style-focus="border-color: var(--accent, #6FA0C4);">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12.5px; letter-spacing: 0.04em; color: #9AA6B0; text-transform: uppercase;">Empresa</span>
+            <input type="text" placeholder="Nome da empresa" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18); color: #F2F4F6; padding: 13px 15px; font-family: 'Archivo', sans-serif; font-size: 15px; outline: none; transition: border-color .2s;" style-focus="border-color: var(--accent, #6FA0C4);">
+          </label>
+        </div>
+        <label style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 12.5px; letter-spacing: 0.04em; color: #9AA6B0; text-transform: uppercase;">E-mail ou telefone</span>
+          <input type="text" placeholder="Como podemos retornar" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18); color: #F2F4F6; padding: 13px 15px; font-family: 'Archivo', sans-serif; font-size: 15px; outline: none; transition: border-color .2s;" style-focus="border-color: var(--accent, #6FA0C4);">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 12.5px; letter-spacing: 0.04em; color: #9AA6B0; text-transform: uppercase;">Contexto (opcional)</span>
+          <textarea rows="3" placeholder="Em poucas linhas, o que motiva o contato" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.18); color: #F2F4F6; padding: 13px 15px; font-family: 'Archivo', sans-serif; font-size: 15px; outline: none; resize: vertical; transition: border-color .2s;" style-focus="border-color: var(--accent, #6FA0C4);"></textarea>
+        </label>
+        <button type="submit" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; background: #F6F5F3; color: #102131; border: none; padding: 15px 28px; font-family: 'Archivo', sans-serif; font-weight: 600; font-size: 15px; cursor: pointer; transition: transform .2s ease, background .2s ease;" style-hover="transform: translateY(-2px); background: #FFFFFF;">Solicitar diagnóstico →</button>
+        <p style="font-size: 12.5px; line-height: 1.5; color: #8B97A2;">O envio deste formulário não constitui contratação de serviços nem estabelece relação advogado-cliente.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer data-screen-label="Home / Rodapé" style="position: relative; background: rgba(6,12,20,0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.08); color: #A7B2BC; padding: clamp(48px, 6vw, 72px) clamp(20px, 5vw, 64px) 40px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; align-items: start;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 13px; margin-bottom: 18px;">
+          <img src="assets/logo-mark-light.png" alt="Thulio Peixoto Advogados" style="height: 36px; width: auto; display: block; opacity: 0.92;">
+          <span style="display: flex; flex-direction: column; line-height: 1.05;">
+            <span style="font-family: 'Spectral', serif; font-size: 16px; color: #E4E8EC; letter-spacing: 0.01em;">Thulio Peixoto</span>
+            <span style="font-family: 'Archivo', sans-serif; font-size: 9.5px; letter-spacing: 0.42em; text-transform: uppercase; color: #7E8B96; font-weight: 500; padding-left: 2px;">Advogados</span>
+          </span>
+        </div>
+        <p style="font-size: 13.5px; line-height: 1.6; max-width: 34ch; color: #8794A0;">Direito do Trabalho empresarial. Defesa e prevenção do lado do empregador.</p>
+      </div>
+      <div>
+        <p style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #67747F; margin-bottom: 14px;">Navegação</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="#areas" style="color: #A2AEB8; font-size: 14px; transition: color .2s;" style-hover="color: #E4E8EC;">Áreas de Atuação</a>
+          <a href="#sobre" style="color: #A2AEB8; font-size: 14px; transition: color .2s;" style-hover="color: #E4E8EC;">Sobre</a>
+          <a href="#contato" style="color: #A2AEB8; font-size: 14px; transition: color .2s;" style-hover="color: #E4E8EC;">Contato</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #67747F; margin-bottom: 14px;">Contato</p>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #A2AEB8;">
+          <span>Maceió — Alagoas</span>
+          <span>contato@thuliopeixoto.adv.br</span>
+          <span>WhatsApp sob agendamento</span>
+        </div>
+      </div>
+    </div>
+    <div style="max-width: 1180px; margin: 48px auto 0; padding-top: 26px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+      <span style="font-size: 12.5px; color: #74808B;">Thulio Peixoto — OAB/AL nº 11.902</span>
+      <span style="font-size: 12.5px; color: #74808B;">© 2026 · Todos os direitos reservados</span>
+    </div>
+  </footer>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 1280, &quot;height&quot;: 900 },
+  &quot;accentColor&quot;: {
+    &quot;editor&quot;: &quot;color&quot;,
+    &quot;default&quot;: &quot;#6FA0C4&quot;,
+    &quot;tsType&quot;: &quot;string&quot;,
+    &quot;section&quot;: &quot;Aparência&quot;,
+    &quot;options&quot;: [&quot;#6FA0C4&quot;, &quot;#8FB6D2&quot;, &quot;#7B7D7C&quot;, &quot;#F6F5F3&quot;]
+  },
+  &quot;numberedAreas&quot;: {
+    &quot;editor&quot;: &quot;boolean&quot;,
+    &quot;default&quot;: true,
+    &quot;tsType&quot;: &quot;boolean&quot;,
+    &quot;section&quot;: &quot;Áreas de Atuação&quot;
+  }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const accent = this.props.accentColor ?? '#6FA0C4';
+    const showNumbers = this.props.numberedAreas ?? true;
+    return {
+      accent,
+      showNumbers,
+      videoRef: (el) => {
+        if (!el) return;
+        el.muted = true;
+        const p = el.play();
+        if (p && p.catch) p.catch(() => {});
+      },
+      onSubmit: (e) => { e.preventDefault(); },
+      dores: [
+        { title: 'Reclamatórias em curso', body: 'Ações que exigem defesa técnica desde a primeira audiência.' },
+        { title: 'Passivo oculto', body: 'Rotinas de RH que se acumulam como risco financeiro não provisionado.' },
+        { title: 'Riscos na fiscalização', body: 'Autuações e notificações que geram multas e termos de ajuste de conduta.' },
+        { title: 'Jornada e contratos frágeis', body: 'Controle de ponto, horas extras e contratos que não resistem a questionamento.' },
+      ],
+      areas: [
+        { num: '01', title: 'Defesa em reclamatórias trabalhistas', body: 'Defesa da empresa em todas as fases do processo, da contestação à execução.' },
+        { num: '02', title: 'Auditoria preventiva de passivo', body: 'Análise das rotinas de RH para identificar e corrigir riscos antes da ação judicial.' },
+        { num: '03', title: 'Jornada, contratos e terceirização', body: 'Estruturação de jornada, contratos e terceirização em conformidade com a legislação.' },
+        { num: '04', title: 'Fiscalização do trabalho', body: 'Acompanhamento e defesa em fiscalizações e autuações trabalhistas.' },
+        { num: '05', title: 'Negociação e acordos', body: 'Condução de acordos individuais e coletivos para encerrar contingências.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
